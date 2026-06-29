@@ -22,10 +22,14 @@ describe('Componente SuccessView', () => {
       setSubmittedVerificationId: mockSetSubmittedVerificationId,
     });
 
-    // Mock de clipboard
-    global.navigator.clipboard = {
-      writeText: vi.fn().mockResolvedValue(undefined),
-    } as any;
+    // Mock de clipboard usando Object.defineProperty para evitar el error de asignación de sólo lectura en TS
+    Object.defineProperty(globalThis.navigator, 'clipboard', {
+      value: {
+        writeText: vi.fn().mockResolvedValue(undefined),
+      },
+      configurable: true,
+      writable: true,
+    });
   });
 
   it('debería mostrar el ID de verificación y el título de éxito', () => {

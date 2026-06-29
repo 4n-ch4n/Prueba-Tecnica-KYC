@@ -27,8 +27,8 @@ describe('Componente DragDropUpload', () => {
     const file = new File(['dummy_content'], 'avatar.jpg', { type: 'image/jpeg' });
     
     // Simular URL.createObjectURL para jsdom
-    global.URL.createObjectURL = vi.fn().mockReturnValue('mock-object-url');
-    global.URL.revokeObjectURL = vi.fn();
+    globalThis.URL.createObjectURL = vi.fn().mockReturnValue('mock-object-url');
+    globalThis.URL.revokeObjectURL = vi.fn();
 
     render(<DragDropUpload {...defaultProps} value={file} />);
 
@@ -69,7 +69,7 @@ describe('Componente DragDropUpload', () => {
 
   it('debería eliminar el archivo cuando se presiona el botón eliminar', () => {
     const file = new File(['dummy_content'], 'avatar.jpg', { type: 'image/jpeg' });
-    global.URL.createObjectURL = vi.fn().mockReturnValue('mock-object-url');
+    globalThis.URL.createObjectURL = vi.fn().mockReturnValue('mock-object-url');
 
     render(<DragDropUpload {...defaultProps} value={file} />);
 

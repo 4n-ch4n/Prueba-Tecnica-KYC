@@ -31,8 +31,8 @@ describe('Componente VerificationForm', () => {
     });
 
     // Mock URL para jsdom
-    global.URL.createObjectURL = vi.fn().mockReturnValue('mock-object-url');
-    global.URL.revokeObjectURL = vi.fn();
+    globalThis.URL.createObjectURL = vi.fn().mockReturnValue('mock-object-url');
+    globalThis.URL.revokeObjectURL = vi.fn();
   });
 
   const renderComponent = () => {
