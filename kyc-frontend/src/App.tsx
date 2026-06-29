@@ -19,13 +19,13 @@ const queryClient = new QueryClient({
 export const App: React.FC = () => {
   const { darkMode, toggleDarkMode, currentView, setCurrentView } = useKycStore();
 
-  // Sincronizar el estado del modo oscuro con la etiqueta body
+  // Sincronizar el estado del modo oscuro con la etiqueta html raíz para Tailwind v4
   useEffect(() => {
-    const bodyClassList = document.body.classList;
+    const root = document.documentElement;
     if (darkMode) {
-      bodyClassList.add('dark');
+      root.classList.add('dark');
     } else {
-      bodyClassList.remove('dark');
+      root.classList.remove('dark');
     }
   }, [darkMode]);
 
