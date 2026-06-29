@@ -1,0 +1,19 @@
+name = "kyc-backend"
+main = "src/index.ts"
+compatibility_date = "2024-04-03"
+
+# Variables de entorno globales para producción
+[vars]
+CORS_ORIGIN = "https://kyc-frontend.pages.dev" # Reemplazar con el dominio de Cloudflare Pages asignado
+NODE_ENV = "production"
+
+# Configuración de la Base de Datos D1
+[[d1_databases]]
+binding = "kyc_db"
+database_name = "kyc-db"
+database_id = "756e0a7a-d766-4a92-8952-54258b730d0f"
+
+# Configuración del Bucket R2 para almacenamiento físico (opcional, cae en Mock si se comenta)
+# [[r2_buckets]]
+# binding = "BUCKET"
+# bucket_name = "kyc-documents-bucket"

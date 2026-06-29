@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./kyc-backend
+      dockerfile: Dockerfile
+    container_name: kyc-backend
+    ports:
+      - "${BACKEND_PORT:-8787}:8787"
+    environment:
+      - NODE_ENV=${NODE_ENV:-development}
+      - CORS_ORIGIN=${CORS_ORIGIN:-http://localhost:8080}
+    volumes:
+      - ./kyc-backend:/app
+      - /app/node_modules
+    restart: always
+
+  frontend:
+    build:
+      context: ./kyc-frontend
+      dockerfile: Dockerfile
+      args:
+        - VITE_API_URL=${VITE_API_URL:-http://localhost:8787}
+    container_name: kyc-frontend
+    ports:
+      - "${FRONTEND_PORT:-8080}:80"
+    depends_on:
+      - backend
+    restart: always
