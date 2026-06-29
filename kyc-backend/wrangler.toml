@@ -4,7 +4,7 @@ compatibility_date = "2024-04-03"
 
 # Variables de entorno globales para producción
 [vars]
-CORS_ORIGIN = "https://e8b4994a.kyc-frontend-2p5.pages.dev" # Reemplazar con el dominio de Cloudflare Pages asignado
+CORS_ORIGIN = "https://kyc-frontend-2p5.pages.dev" # Dominio de Cloudflare Pages asignado
 NODE_ENV = "production"
 
 # Configuración de la Base de Datos D1
