@@ -9,7 +9,7 @@ NODE_ENV = "production"
 
 # Configuración de la Base de Datos D1
 [[d1_databases]]
-binding = "kyc_db"
+binding = "DB"
 database_name = "kyc-db"
 database_id = "756e0a7a-d766-4a92-8952-54258b730d0f"
 
