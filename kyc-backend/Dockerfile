@@ -1,4 +1,4 @@
-FROM node:20-alpine
+FROM node:22-slim
 
 # Instalar wrangler globalmente para la emulación
 RUN npm install -g wrangler
@@ -19,4 +19,4 @@ RUN npx tsc --noEmit
 EXPOSE 8787
 
 # Aplicar migraciones localmente y ejecutar el Worker en modo local dentro de la red del contenedor
-CMD ["sh", "-c", "npx wrangler d1 migrations apply kyc-db --local --batch && npx wrangler dev --ip 0.0.0.0 --port 8787 --local --persist"]
+CMD ["sh", "-c", "npx wrangler d1 migrations apply kyc-db --local && npx wrangler dev --ip 0.0.0.0 --port 8787"]

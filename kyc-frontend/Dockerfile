@@ -1,5 +1,5 @@
 # Stage 1: Compilar la aplicación React
-FROM node:20-alpine AS build
+FROM node:22-slim AS build
 
 WORKDIR /app
 
